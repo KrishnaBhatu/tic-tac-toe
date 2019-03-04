@@ -91,6 +91,12 @@ class TestTicTacToeGameFunctions(unittest.TestCase):
         layerNumber = 1
         testObject = TicTacToe(boardPosition, move, layerNumber)
         self.assertEqual(testObject.calcMyCost(), 8)
+        #Checking the node cost of grandchild
+        testObject.extractNode()
+        testObject.children[0].extractNode()
+        boardPosition = testObject.children[0].children[0].boardPosition
+        testObject = TicTacToe(boardPosition, move, 3,testObject.children[0] )
+        self.assertEqual(testObject.calcMyCost(), 9)
     
     ## Documentation for a function
     def test_winning_condition(self):
