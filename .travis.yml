@@ -4,6 +4,9 @@ python:
 cache: pip
 install: 
   - pip install numpy
+  - pip install python-coveralls
 script: 
   - cd test
   - python -m unitTestTicTacToe
+after_success:
+  - coveralls
