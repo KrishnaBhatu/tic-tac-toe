@@ -8,6 +8,6 @@ install:
 script: 
   - cd test
   - python -m unitTestTicTacToe
-  - coverage run --source=script/TicTacToeClass.py test/unitTestTicTacToe.py
+  - coverage run --source=../script/TicTacToeClass.py unitTestTicTacToe.py
 after_success:
   - coveralls
