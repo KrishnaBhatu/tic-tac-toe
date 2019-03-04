@@ -100,7 +100,20 @@ class TestTicTacToeGameFunctions(unittest.TestCase):
         layerNumber = 1
         testObject = TicTacToe(boardPosition, move, layerNumber)
         self.assertFalse(testObject.checkWin())
+        #Row winning condition
         boardPosition = [1,1,1,-1,1,0,0,-1,0]
+        testObject = TicTacToe(boardPosition, move, layerNumber)
+        self.assertTrue(testObject.checkWin())
+        #Column winning condition
+        boardPosition = [1,-1,0,1,-1,0,1,1,0]
+        testObject = TicTacToe(boardPosition, move, layerNumber)
+        self.assertTrue(testObject.checkWin())
+        #Diagonal winning condition
+        boardPosition = [1,0,1,-1,1,0,0,-1,1]
+        testObject = TicTacToe(boardPosition, move, layerNumber)
+        self.assertTrue(testObject.checkWin())
+        #Diagonal winning condition
+        boardPosition = [0,1,1,-1,1,0,1,-1,0]
         testObject = TicTacToe(boardPosition, move, layerNumber)
         self.assertTrue(testObject.checkWin())
 
