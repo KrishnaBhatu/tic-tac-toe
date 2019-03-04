@@ -2,3 +2,8 @@ language: python
 python:
   - "2.7"
 cache: pip
+install: 
+  - pip install numpy
+script: 
+  - cd test
+  - python -m unitTestTicTacToe
