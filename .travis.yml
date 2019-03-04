@@ -8,8 +8,8 @@ install:
   - pip install coveralls
   
 script: 
-  - cd script
+  - cd test
   - python -m unitTestTicTacToe
-  - coverage run --source=TicTacToeClass.py unitTestTicTacToe.py
+  - coverage run --source=../script/TicTacToeClass.py unitTestTicTacToe.py
 after_success:
   - coveralls
