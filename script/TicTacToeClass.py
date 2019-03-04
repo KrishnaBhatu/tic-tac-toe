@@ -1,20 +1,36 @@
+
+## @package TicTacToeClass
+# Documentation for TicTacToe Class
+# This class defines a node which is a particular tic-tac-toe board setting
+
 import numpy as np
 import copy
 
+## TicTacToe Class
 class TicTacToe:
 
+    ## Class Constructor
+    # This method initializes the board positions for the node along with other node parameters
+    # @param self Object pointer
+    # @param boardPosition The current positions of all the moves played
+    # @param move The move of the current node which is -1 for X and 1 for O
+    # @param layerNumber The position of the node which is the number of moves played before the node arrived
+    # @param parent The node object from which the current node is derived
     def __init__(self, boardPosition, move, layerNumber, parent = None):
 
         self.boardPosition = boardPosition
         self.parent = parent
         self.myMove = move
         self.layerNumber = layerNumber
-        self.children = []
+        self.children = [] #List of all derived nodes
         if(parent == None):
             self.myCost = 0
         else:
             self.myCost = self.calcMyCost()
 
+    ## Method to find the empty positions on the tic-tac-toe board
+    # @param self Object pointer
+    # @return emptyPositionList A list of location of empty positions
     def findEmptyPosition(self):
         emptyPositionList = []
         for i in range(0, len(self.boardPosition)):
@@ -23,6 +39,9 @@ class TicTacToe:
 
         return emptyPositionList
 
+    ## Method to expand the branches of the node (Deriving all the possible next moves)
+    # @param self Object pointer
+    # @return None
     def extractNode(self):
         emptyPositionList = self.findEmptyPosition()
         for i in emptyPositionList:
@@ -36,10 +55,10 @@ class TicTacToe:
                 child = TicTacToe(boardPositionTemp, self.myMove * (-1), self.layerNumber + 1, self)
                 self.children.append(child)
 
+    ## Method to find the maximum possible ways for winning for the particular node
+    # @param self Object Pointer
+    # @return count The number of possible victory ways (Max = 8)
     def gainFunction(self):
-        #find the cost of the possible combinations to win
-        #we have to choose the maximum gain path
-        #check row
         count = 0
         i = 0
         for p in range(0,3):
@@ -54,9 +73,10 @@ class TicTacToe:
         if(self.boardPosition[2]!= -1*self.myMove and self.boardPosition[4]!= -1*self.myMove and self.boardPosition[6]!= -1*self.myMove):
             count += 1
         return count
-        #check column
-        #check diagonal
 
+    ## Method to print the boardPosition of the node
+    # @param self Object Pointer
+    # @return None
     def printMe(self):
         p = 0
         for i in self.boardPosition:
@@ -71,10 +91,16 @@ class TicTacToe:
                 print("  " + "  " + " | "),
             p += 1
         print("\n")
-    
+
+    ## Method to get the deep copy of the boardPOsition 
+    # @param self
+    # @return Deepcopy of boardPosition
     def getMyCopy(self):
         return copy.deepcopy(self.boardPosition)
 
+    ## Method to check if the current node has a winning configuration
+    # @param self Object pointer
+    # @return flag Flag is a boolean which is Ture if the node has a winning configuration
     def checkWin(self):
         flag = False
         i = 0
@@ -94,6 +120,9 @@ class TicTacToe:
         
         return flag
 
+    ## Method to calculate the total cost to reach the node
+    # @param self Object pointer
+    # @return cost The integer cost that requires to reach the node from the root node(We maximize the cost to win)
     def calcMyCost(self):
         cost = 0
         cost = cost + self.gainFunction()
