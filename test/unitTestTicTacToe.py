@@ -50,6 +50,15 @@ class TestTicTacToeGameFunctions(unittest.TestCase):
         testObject.extractNode()
         numberOfChildren = len(testObject.children)
         self.assertEqual(numberOfChildren, desiredNumberOfChildren)
+        boardPosition = [0,1,0,-1,1,0,-1,0,0]
+        #Number of branches(children) created should be equal to the number of empty spaces which is zeros
+        desiredNumberOfChildren = 5
+        move = -1
+        layerNumber = 1
+        testObject = TicTacToe(boardPosition, move, layerNumber)
+        testObject.extractNode()
+        numberOfChildren = len(testObject.children)
+        self.assertEqual(numberOfChildren, desiredNumberOfChildren)
 
     ## Documentation for a function
     def test_objects_parent(self):
