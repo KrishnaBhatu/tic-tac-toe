@@ -3,7 +3,6 @@
 #
 # This is the unit test script for the TicTacToe game software
 import sys
-sys.path.insert(0, '../script')
 import unittest
 from TicTacToeClass import TicTacToe
 
