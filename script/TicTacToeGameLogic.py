@@ -112,7 +112,7 @@ print("\n")
 yourMove = opponentNotation
 computerMove = opponentNotation * (-1)
 boardPosition = [0,0,0,0,0,0,0,0,0] #Initialize the board position to all empty(0)
-if(start == 'Y'):
+if(start == 'Y' or start == 'y'):
     parent = None
     currentLayer = 1
     currentOpponentPlacement = input("What's your move?")
@@ -173,7 +173,7 @@ if(start == 'Y'):
             emptyPositions = maxNode.findEmptyPosition()
             currentOpponentPlacement = input("What's your move?")
             #Check if the user has not entered any invalid input
-            while(currentOpponentPlacement not in emptyPositions and 0 <= currentOpponentPlacement <= 8):
+            while((currentOpponentPlacement not in emptyPositions) or (8 < currentOpponentPlacement < 0)):
                 print("Invalid Position\n")
                 currentOpponentPlacement = input("What's your move?")
             
@@ -202,7 +202,7 @@ if(start == 'Y'):
             print("Your turn now! \n")
             emptyPositions = currentMove.findEmptyPosition()
             currentOpponentPlacement = input("What's your move?")
-            while(currentOpponentPlacement not in emptyPositions and 0 <= currentOpponentPlacement <= 8):
+            while((currentOpponentPlacement not in emptyPositions) or (8 < currentOpponentPlacement < 0)):
                 print("Invalid Position!\n")
                 currentOpponentPlacement = input("What's your move?")
             boardPosition = currentMove.getMyCopy()
@@ -219,7 +219,7 @@ if(start == 'Y'):
         del nodesSearched[:]
         nodeToSearch.append(currentMove)
         
-elif(start == 'N'):
+elif(start == 'N' or start == 'n'):
     parent = None
     currentLayer = 1
     currentOpponentPlacement = random.randint(0,8)
@@ -232,7 +232,7 @@ elif(start == 'N'):
     emptyPositions = currentMove.findEmptyPosition()
     currentOpponentPlacement = input("What's your move?")
     #Check if the user has not entered any invalid input    
-    while(currentOpponentPlacement not in emptyPositions and 0 <= currentOpponentPlacement <= 8):
+    while((currentOpponentPlacement not in emptyPositions) or (8 < currentOpponentPlacement < 0)):
             print("Invalid Position\n")
             currentOpponentPlacement = input("What's your move?")
     boardPosition[currentOpponentPlacement] =  yourMove
@@ -290,7 +290,7 @@ elif(start == 'N'):
             emptyPositions = maxNode.findEmptyPosition()
             currentOpponentPlacement = input("What's your move?")
             #Check if the user has not entered any invalid input
-            while(currentOpponentPlacement not in emptyPositions and 0 <= currentOpponentPlacement <= 8):
+            while((currentOpponentPlacement not in emptyPositions) or (8 < currentOpponentPlacement < 0)):
                 print("Invalid Position\n")
                 currentOpponentPlacement = input("What's your move?")
             boardPosition = maxNode.getMyCopy()
@@ -318,7 +318,7 @@ elif(start == 'N'):
             print("Your turn now! \n")
             emptyPositions = currentMove.findEmptyPosition()
             currentOpponentPlacement = input("What's your move?")
-            while(currentOpponentPlacement not in emptyPositions and 0 <= currentOpponentPlacement <= 8):
+            while((currentOpponentPlacement not in emptyPositions) or (8 < currentOpponentPlacement < 0)):
                 print("Invalid Position!\n")
                 currentOpponentPlacement = input("What's your move?")
             boardPosition = currentMove.getMyCopy()
