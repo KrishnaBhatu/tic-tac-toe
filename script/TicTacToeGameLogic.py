@@ -75,22 +75,6 @@ def checkWinningCondition(boardPosition, theirMove):
 
     return zeroPosition
 
-'''
-def checkEmpty(boardPosition):
-    return 0 not in boardPosition
-'''
-'''
-## Function 
-def zeroPosition(boardPosition):
-    position = 0
-    zeroPos = []
-    for i in boardPosition:
-        if(i == 0):
-            zeroPos.append(position)
-        position += 1
-    return zeroPos
-'''         
-
 #Code implementing game logic and human interracton
 start = raw_input("Do you want to start first say Y or N! \n")
 print("What is your Notation X or O? \n")
