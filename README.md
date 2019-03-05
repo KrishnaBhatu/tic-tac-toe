@@ -51,23 +51,23 @@ For installing Python use the following [link](https://www.python.org/download/r
 The detailed explaination of installing python, pip and setting up the path for the environmental variable are given in the following [link](https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation)
 
 For rest of the installations(numpy, unittest, coveralls, coverage) open the command prompt and type the following commands;
-'''
+```
 pip install <package name>
-'''
+```
 
 ## Run Instructions
 
 For running the software the first setp is to clone the repository at your local machine, this can be done by typing the following command on your command prompt.
-'''
+```
 git clone https://github.com/KrishnaBhatu/tic-tac-toe.git
-'''
+```
 
 For running the software:
-'''
+```
 cd <path to the repository>
 cd script
 python TicTacToeGameLogic.py
-'''
+```
 This will open up an interractive terminal where you can play a game of tic tac toe with the computer.(WARNING: You can never win against this software).
 Following is the screenshot of the output.
 <p align="center">
@@ -83,10 +83,10 @@ The commenting for the software is done in the doxygen format. To view the docum
  
  For Ubuntu:
  Type the following command on the terminal
- '''
+ ```
  sudo apt-get install doxygen
  sudo apt-get install doxygen-gui
- '''
+ ```
 Now to view the documentation you need to open up the doxywizard which is the doxygen GUI.
 Add the details of the project including title(Tic-Tac-Toe Game), description and version. Select your script directory as the source directory and create a new directory at the location of your choice and set it as the destination directory. 
 Click Next, now select all entreis and optimize for C++.Click Next, now set the output formats to both HTML and LaTex.Click Next, now chose build in generator and click next. Now select the reopsitory folder as the folder for the doxygen to run and run doxygen. After the run is complete, you can view the HTML document. Also the HTML and LatTex files will be stored in the destination folder.  
